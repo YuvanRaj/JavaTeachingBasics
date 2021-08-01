@@ -1,0 +1,105 @@
+What is hashMap?
+   HashMap is key value paired Data Structured storge collection 
+      Example:   Father name and Son name
+				 Key -> Value PAir all Real time example.
+				 
+				 
+				 word document -> this is word document. It is word.This
+				    
+					26 charace
+					  a - 1000
+					  b-500
+					  c -200
+				 
+				 this -2
+				 is -2
+				 word -2
+				 /docun/it -1
+				 
+				 int x =45;
+				 String y = 23;
+				 
+				 45,23,67..
+				 
+				 array
+				 List 
+				 
+				 
+				 
+				 
+How HashMap Works Internally?
+    
+	Creation: Map<String,Integer> map = new HashMap<String,Integer>(); 
+	   Initially 16 buckets in the back end will be created.
+	   
+	   map.put("Yuvaraj",15000);  => We are storing 
+	   
+	   
+	   1. Calculate the Hash For Yuvaraj.
+	         calling public int hash("Yuvaraj") ==> 1234567891345
+			 Minimie the size with in 16 ==>  123456789134455 & 16 ==> always values will be with  in 16.
+			 
+			 7
+			 
+			 
+			 
+			 111111111110000111111111 &        00000000000000000000000000000000000001111 => 016
+			 
+			 
+			 2 & 3 ==  0010   & 0012 = 0010 => 7
+			 
+			 0 0 0
+			 0 1 0
+			 1 0 0
+			 1 1 1
+			 
+			 Assume index 7 comes.
+			 
+		2. At index 7, store the 
+		EntrySet 
+			  class EntrySet{
+			      Key key;  = Yuvaraj
+				  Value value; = 15000
+				  int hashcode; = 123456789
+				  Node next = null.   **
+			   }
+			   
+	    Get:
+			map.get("Yuvaraj");
+			
+			1. Calculate the Hash For Yuvaraj.
+				Assume index 7 comes.
+			
+			2. Get the value of "Yuvaraj" 15000.
+			
+Category:
+    HashMap -> No Order Maintanence.
+	LinkedHashMap -> Order maintain
+	TreeMap -> Ascending Order Maintain.
+	
+
+Override and Equals Method if in case of Custom Object? ***
+What is hashCollision? ****
+
+   Employee employee = new Employee();
+   map.put(employee,"25");
+   
+   
+   class Employee{
+        public String employeeName;
+		
+		  // First Check
+		  @Override
+		  public int hashCode() 
+		  {
+			 return (int)employeeName.charAt(0);
+		  }
+
+		 // Second Check
+		  @Override
+		  public boolean equals(Object obj)
+		  {
+			return employeeName.equals((String)obj);
+		  }
+   }
+	
